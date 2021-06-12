@@ -23,6 +23,6 @@ public final class RemoteFeedLoader {
 	}
 	
 	public func load(){
-		client.get(from: URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!)
+		client.get(from: url)
 	}
 }
