@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BC2896DE2674C5960062D25F /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2896DD2674C5960062D25F /* RemoteFeedLoader.swift */; };
+		BC2896E12674C88B0062D25F /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2896E02674C88B0062D25F /* HTTPClient.swift */; };
+		BC2896E32674C8A70062D25F /* FeedItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2896E22674C8A70062D25F /* FeedItemMapper.swift */; };
 		BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8B52674A77500230F88 /* AppDelegate.swift */; };
 		BC30B8B82674A77500230F88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8B72674A77500230F88 /* SceneDelegate.swift */; };
 		BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8B92674A77500230F88 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		BC2896DD2674C5960062D25F /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		BC2896E02674C88B0062D25F /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		BC2896E22674C8A70062D25F /* FeedItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemMapper.swift; sourceTree = "<group>"; };
 		BC30B8B22674A77500230F88 /* PokemonEncyclopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonEncyclopedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC30B8B52674A77500230F88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC30B8B72674A77500230F88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				BC2896DD2674C5960062D25F /* RemoteFeedLoader.swift */,
+				BC2896E02674C88B0062D25F /* HTTPClient.swift */,
+				BC2896E22674C8A70062D25F /* FeedItemMapper.swift */,
 			);
 			path = FeedListAPI;
 			sourceTree = "<group>";
@@ -291,6 +297,8 @@
 			files = (
 				BC30B8EC2674BB4500230F88 /* FeedLoader.swift in Sources */,
 				BC2896DE2674C5960062D25F /* RemoteFeedLoader.swift in Sources */,
+				BC2896E12674C88B0062D25F /* HTTPClient.swift in Sources */,
+				BC2896E32674C8A70062D25F /* FeedItemMapper.swift in Sources */,
 				BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */,
 				BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */,
 				BC30B8C02674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld in Sources */,
