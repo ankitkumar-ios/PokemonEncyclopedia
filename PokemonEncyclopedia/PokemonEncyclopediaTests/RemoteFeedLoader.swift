@@ -27,19 +27,18 @@ protocol HTTPClient{
 
 
 class HTTPClientSpy: HTTPClient{
+	var requestedURL: URL?
+	
 	func get(from url: URL) {
 		requestedURL = url
 	}
-	var requestedURL: URL?
 }
 
 
 class RemoteFeedLoaderTest: XCTestCase {
 
 	func test_init_doesNotRequestDataFromURL(){
-		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
-		let client = HTTPClientSpy()
-		let _ = RemoteFeedLoader(url:url, client:client)
+		let (_, client) = makeSUT()
 		
 		XCTAssertNil(client.requestedURL)
 	}
@@ -47,8 +46,7 @@ class RemoteFeedLoaderTest: XCTestCase {
 
 	func test_init_requestDataFromURL(){
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
-		let client = HTTPClientSpy()
-		let sut = RemoteFeedLoader(url: url, client: client)
+		let (sut, client) = makeSUT(url: url)
 		
 		sut.load()
 		
@@ -56,4 +54,9 @@ class RemoteFeedLoaderTest: XCTestCase {
 	}
 
 	
+	//HELPER
+	private func makeSUT(url: URL = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
+		let client = HTTPClientSpy()
+		return (RemoteFeedLoader(url: url, client: client), client)
+	}
 }
