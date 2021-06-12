@@ -14,8 +14,11 @@
 		BC30B8C02674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8BE2674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld */; };
 		BC30B8C22674A77900230F88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC30B8C12674A77900230F88 /* Assets.xcassets */; };
 		BC30B8C52674A77900230F88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC30B8C32674A77900230F88 /* LaunchScreen.storyboard */; };
-		BC30B8D02674A77900230F88 /* PokemonEncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8CF2674A77900230F88 /* PokemonEncyclopediaTests.swift */; };
 		BC30B8DB2674A77900230F88 /* PokemonEncyclopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8DA2674A77900230F88 /* PokemonEncyclopediaUITests.swift */; };
+		BC30B8EA2674B90800230F88 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8E92674B90700230F88 /* FeedItem.swift */; };
+		BC30B8EC2674BB4500230F88 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8EB2674BB4500230F88 /* FeedLoader.swift */; };
+		BC30B8F02674BB8C00230F88 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC30B8EF2674BB8C00230F88 /* RemoteFeedLoader.swift */; };
+		BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +49,14 @@
 		BC30B8C42674A77900230F88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC30B8C62674A77900230F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC30B8CB2674A77900230F88 /* PokemonEncyclopediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonEncyclopediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC30B8CF2674A77900230F88 /* PokemonEncyclopediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaTests.swift; sourceTree = "<group>"; };
 		BC30B8D12674A77900230F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC30B8D62674A77900230F88 /* PokemonEncyclopediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonEncyclopediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC30B8DA2674A77900230F88 /* PokemonEncyclopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaUITests.swift; sourceTree = "<group>"; };
 		BC30B8DC2674A77900230F88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC30B8E92674B90700230F88 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		BC30B8EB2674BB4500230F88 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		BC30B8EF2674BB8C00230F88 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				BC30B8B52674A77500230F88 /* AppDelegate.swift */,
 				BC30B8B72674A77500230F88 /* SceneDelegate.swift */,
 				BC30B8B92674A77500230F88 /* ViewController.swift */,
+				BC30B8E82674B89000230F88 /* PokemonFeedFeature */,
 				BC30B8BB2674A77500230F88 /* Main.storyboard */,
 				BC30B8C12674A77900230F88 /* Assets.xcassets */,
 				BC30B8C32674A77900230F88 /* LaunchScreen.storyboard */,
@@ -116,7 +123,8 @@
 		BC30B8CE2674A77900230F88 /* PokemonEncyclopediaTests */ = {
 			isa = PBXGroup;
 			children = (
-				BC30B8CF2674A77900230F88 /* PokemonEncyclopediaTests.swift */,
+				BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */,
+				BC30B8EF2674BB8C00230F88 /* RemoteFeedLoader.swift */,
 				BC30B8D12674A77900230F88 /* Info.plist */,
 			);
 			path = PokemonEncyclopediaTests;
@@ -129,6 +137,15 @@
 				BC30B8DC2674A77900230F88 /* Info.plist */,
 			);
 			path = PokemonEncyclopediaUITests;
+			sourceTree = "<group>";
+		};
+		BC30B8E82674B89000230F88 /* PokemonFeedFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BC30B8E92674B90700230F88 /* FeedItem.swift */,
+				BC30B8EB2674BB4500230F88 /* FeedLoader.swift */,
+			);
+			path = PokemonFeedFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC30B8EC2674BB4500230F88 /* FeedLoader.swift in Sources */,
 				BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */,
 				BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */,
 				BC30B8C02674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld in Sources */,
+				BC30B8EA2674B90800230F88 /* FeedItem.swift in Sources */,
 				BC30B8B82674A77500230F88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC30B8D02674A77900230F88 /* PokemonEncyclopediaTests.swift in Sources */,
+				BC30B8F02674BB8C00230F88 /* RemoteFeedLoader.swift in Sources */,
+				BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopedia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,6 +499,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopediaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,6 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopediaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,6 +542,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopediaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,6 +562,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UYGQW9ZL85;
 				INFOPLIST_FILE = PokemonEncyclopediaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
