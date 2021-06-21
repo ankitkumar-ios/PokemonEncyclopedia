@@ -20,9 +20,9 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 				}
 				
 			case let .failure(error):
-				XCTFail("Exptected success but got \(error)")
+				XCTFail("Expected success but got \(error)")
 			default:
-				XCTFail("Exptected success but got an error")
+				XCTFail("Expected success but got an error")
 		}
 		
 		
