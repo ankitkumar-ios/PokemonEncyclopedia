@@ -11,6 +11,28 @@ import PokemonEncyclopedia
 class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 
 	func test_endToEndTestServerGETFeedResult_matchFixedTestAccountData() {
+		switch getFeedResult() {
+			case let .success(items):
+				XCTAssertEqual(items.count, 20, "Expeceted 8 items")
+				
+				items.enumerated().forEach { (index, item) in
+					XCTAssertEqual(item, expectedItem(at: index), "Unexpected Value at index \(index)")
+				}
+				
+			case let .failure(error):
+				XCTFail("Exptected success but got \(error)")
+			default:
+				XCTFail("Exptected success but got an error")
+		}
+		
+		
+	}
+	
+	
+	//MARK: Helper
+	
+	private func getFeedResult() -> LoadFeedResult? {
+		
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
 		let client = URLSessionHTTPClient()
 		let loader = RemoteFeedLoader(url: url, client: client)
@@ -26,25 +48,10 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		
 		wait(for: [ext], timeout: 5.0)
 		
-		switch receivedResult {
-			case let .success(items):
-				XCTAssertEqual(items.count, 20, "Expeceted 8 items")
-				
-				items.enumerated().forEach { (index, item) in
-					XCTAssertEqual(item, expectedItem(at: index), "Unexpected Value at index \(index)")
-				}
-				
-			case let .failure(error):
-				XCTFail("Exptected success but got \(error)")
-			default:
-				XCTFail("Exptected success but got \(String(describing: receivedResult))")
-		}
-		
+		return receivedResult
 		
 	}
 	
-	
-	//MARK: Helper
 	private func expectedItem(at index: Int) -> FeedItem {
 		return FeedItem.init(name: name(at: index), imageURL: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
 	}
