@@ -31,12 +31,13 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 	
 	//MARK: Helper
 	
-	private func getFeedResult() -> LoadFeedResult? {
+	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
 		
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
 		let client = URLSessionHTTPClient()
 		let loader = RemoteFeedLoader(url: url, client: client)
-		
+		trackForMemoryLeaks(client, file: file, line: line)
+		trackForMemoryLeaks(loader, file: file, line: line)
 		let ext = expectation(description: "Wait for Completion")
 		
 		var receivedResult:LoadFeedResult?
