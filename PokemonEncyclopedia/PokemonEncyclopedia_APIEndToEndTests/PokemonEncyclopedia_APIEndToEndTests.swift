@@ -29,6 +29,11 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		switch receivedResult {
 			case let .success(items):
 				XCTAssertEqual(items.count, 20, "Expeceted 8 items")
+				
+				items.enumerated().forEach { (index, item) in
+					XCTAssertEqual(item, expectedItem(at: index), "Unexpected Value at index \(index)")
+				}
+				
 			case let .failure(error):
 				XCTFail("Exptected success but got \(error)")
 			default:
@@ -37,6 +42,62 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		
 		
 	}
+	
+	
+	//MARK: Helper
+	private func expectedItem(at index: Int) -> FeedItem {
+		return FeedItem.init(name: name(at: index), imageURL: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
+	}
+	
+	private func name(at index: Int)-> String {
+		return [
+			"bulbasaur",
+			"ivysaur",
+			"venusaur",
+			"charmander",
+			"charmeleon",
+			"charizard",
+			"squirtle",
+			"wartortle",
+			"blastoise",
+			"caterpie",
+			"metapod",
+			"butterfree",
+			"weedle",
+			"kakuna",
+			"beedrill",
+			"pidgey",
+			"pidgeotto",
+			"pidgeot",
+			"rattata",
+			"raticate"
+		][index]
+	}
 
+	private func imageURL(at index: Int) -> URL {
+		return [
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/1/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/2/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/3/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/4/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/5/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/6/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/7/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/8/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/9/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/10/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/11/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/12/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/13/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/14/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/15/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/16/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/17/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/18/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/19/")!,
+			URL.init(string: "https://pokeapi.co/api/v2/pokemon/20/")!
+		][index]
+	}
+	
 
 }
