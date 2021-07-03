@@ -24,13 +24,10 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 			default:
 				XCTFail("Expected success but got an error")
 		}
-		
-		
 	}
 	
 	
 	//MARK: Helper
-	
 	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
 		
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
@@ -106,6 +103,4 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 			URL.init(string: "https://pokeapi.co/api/v2/pokemon/20/")!
 		][index]
 	}
-	
-
 }
