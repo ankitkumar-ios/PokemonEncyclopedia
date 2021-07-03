@@ -14,5 +14,5 @@ You check the logs by turing Internet ON or OFF.
 
 * Approach-1 -> Diagram
 
-<img src="https://github.com/ankitkumar-ios/ApiStructure/blob/main/images/Modular-1.png" width="200" style="align:right" />
+<img src="https://github.com/ankitkumar-ios/ModularArchitecture_FeedLoader/blob/main/Modular-ApiStructure.png" width="200" style="align:right" />
 
