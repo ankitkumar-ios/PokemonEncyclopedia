@@ -26,10 +26,36 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BC30B8B12674A77500230F88"
+            BuildableName = "PokemonEncyclopedia.app"
+            BlueprintName = "PokemonEncyclopedia"
+            ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BC30B8CA2674A77900230F88"
+            BuildableName = "PokemonEncyclopediaTests.xctest"
+            BlueprintName = "PokemonEncyclopediaTests"
+            ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BC960AA926803495002BCAB9"
+            BuildableName = "PokemonEncyclopedia_APIEndToEndTests.xctest"
+            BlueprintName = "PokemonEncyclopedia_APIEndToEndTests"
+            ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BC30B8CA2674A77900230F88"
@@ -39,17 +65,8 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC30B8D52674A77900230F88"
-               BuildableName = "PokemonEncyclopediaUITests.xctest"
-               BlueprintName = "PokemonEncyclopediaUITests"
-               ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BC960AA926803495002BCAB9"
