@@ -9,6 +9,21 @@ import XCTest
 import PokemonEncyclopedia
 
 class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
+	//Persistance Cache
+	func cacheDemo(){
+		let cache = URLCache(memoryCapacity:10*1024*1024, diskCapacity: 100*1024*1024)
+		let configuration = URLSessionConfiguration.default
+		configuration.urlCache = cache
+		configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+		let session = URLSession(configuration: configuration)
+		
+		let url =URL(string: "anyURL")!
+		let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+		
+		//or alternatively we can add this
+		URLCache.shared = cache
+	}
+	
 
 	func test_endToEndTestServerGETFeedResult_matchFixedTestAccountData() {
 		switch getFeedResult() {
