@@ -17,11 +17,12 @@ internal final class FeedItemsMapper{
 	}
 	
 	private struct Item: Decodable {
+		let id: UUID
 		let name: String
 		let url: URL
 		
 		var item: FeedItem {
-			FeedItem(name: name, imageURL: url)
+			FeedItem(id: id, name: name, imageURL: url)
 		}
 	}
 	

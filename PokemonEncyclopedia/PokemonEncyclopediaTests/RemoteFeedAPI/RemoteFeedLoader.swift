@@ -79,8 +79,8 @@ class RemoteFeedLoaderTest: XCTestCase {
 	func test_load_deliveryItemsOn200HTTPResponseWithJSONItem(){
 		let (sut, client) = makeSUT()
 		
-		let item1 = makeItem(name: "another name", imageURL: URL.init(string: "https://a-url.com")!)
-		let item2 = makeItem(name: "a name", imageURL: URL.init(string: "https://another-url.com")!)
+		let item1 = makeItem(id: UUID(), name: "another name", imageURL: URL.init(string: "https://a-url.com")!)
+		let item2 = makeItem(id: UUID(), name: "a name", imageURL: URL.init(string: "https://another-url.com")!)
 		
 		
 		
@@ -119,9 +119,10 @@ class RemoteFeedLoaderTest: XCTestCase {
 	}
 	
 	
-	private func makeItem(name: String?,imageURL: URL) -> (model: FeedItem, json:[String: Any]){
-		let item = FeedItem(name: name, imageURL: imageURL)
+	private func makeItem(id: UUID, name: String?,imageURL: URL) -> (model: FeedItem, json:[String: Any]){
+		let item = FeedItem(id: id, name: name, imageURL: imageURL)
 		let json = [
+			"id": item.id.uuidString,
 			"name": item.name,
 			"url": item.imageURL.absoluteString,
 		].reduce(into: [String: Any]()) {(acc, e) in
