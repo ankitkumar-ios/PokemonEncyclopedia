@@ -33,6 +33,7 @@ class FeedStore {
 	private var deletionCompletions = [DeletionCompletion]()
 	func deleteCachedFeed(completion: @escaping DeletionCompletion){
 		deleteCachedFeedCallCount += 1
+		deletionCompletions.append(completion)
 	}
 	
 	func completeDeletion(with error: Error, at index: Int = 0) {
