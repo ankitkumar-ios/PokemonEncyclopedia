@@ -9,11 +9,11 @@ import Foundation
 
 
 public struct LocalFeedImage: Equatable {
-	public let id: UUID
+	public let id: UUID?
 	public let name: String?
 	public let url: URL
 	
-	public init(id: UUID, name: String?, url: URL){
+	public init(id: UUID?, name: String?, url: URL){
 		self.id = id
 		self.name = name
 		self.url = url

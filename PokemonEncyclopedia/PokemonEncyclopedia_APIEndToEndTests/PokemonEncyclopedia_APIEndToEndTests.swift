@@ -12,10 +12,10 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 
 	func test_endToEndTestServerGETFeedResult_matchFixedTestAccountData() {
 		switch getFeedResult() {
-			case let .success(items):
-				XCTAssertEqual(items.count, 20, "Expeceted 8 items")
+			case let .success(imageFeed):
+				XCTAssertEqual(imageFeed.count, 20, "Expeceted 20 image in test")
 				
-				items.enumerated().forEach { (index, item) in
+				imageFeed.enumerated().forEach { (index, item) in
 					XCTAssertEqual(item, expectedItem(at: index), "Unexpected Value at index \(index)")
 				}
 				
@@ -50,8 +50,8 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		
 	}
 	
-	private func expectedItem(at index: Int) -> FeedItem {
-		return FeedItem.init(name: name(at: index), imageURL: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
+	private func expectedItem(at index: Int) -> FeedImage {
+		return FeedImage.init(name: name(at: index), url: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
 	}
 	
 	private func name(at index: Int)-> String {

@@ -119,12 +119,12 @@ class RemoteFeedLoaderTest: XCTestCase {
 	}
 	
 	
-	private func makeItem(id: UUID, name: String?,imageURL: URL) -> (model: FeedItem, json:[String: Any]){
-		let item = FeedItem(id: id, name: name, imageURL: imageURL)
+	private func makeItem(id: UUID, name: String?,imageURL: URL) -> (model: FeedImage, json:[String: Any]){
+		let item = FeedImage(id: id, name: name, url: imageURL)
 		let json = [
-			"id": item.id.uuidString,
+			"id": item.id?.uuidString,
 			"name": item.name,
-			"url": item.imageURL.absoluteString,
+			"url": item.url.absoluteString,
 		].reduce(into: [String: Any]()) {(acc, e) in
 			if let val = e.value {
 				acc[e.key] = val
