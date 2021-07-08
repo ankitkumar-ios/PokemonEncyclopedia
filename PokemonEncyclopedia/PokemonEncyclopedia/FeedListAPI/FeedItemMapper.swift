@@ -7,12 +7,6 @@
 
 import Foundation
 
-internal struct RemoteFeedItem: Decodable {
-	internal let id: UUID
-	internal let name: String
-	internal let url: URL
-}
-
 internal final class FeedItemsMapper{
 	
 	private struct Root: Decodable {
