@@ -38,7 +38,7 @@ public class LocalFeedLoader {
 	}
 	
 	public func load(){
-		store.retrive()
+		store.retrieve()
 	}
 }
 
