@@ -34,6 +34,7 @@
 		BC960AAD26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960AAC26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift */; };
 		BC960AB426803A4C002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
 		BCA1BA43269053E4000514FE /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA1BA42269053E4000514FE /* CacheFeedUseCaseTests.swift */; };
+		BCB8AF3B269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8AF3A269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		BC960AAC26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopedia_APIEndToEndTests.swift; sourceTree = "<group>"; };
 		BC960AAE26803495002BCAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCA1BA42269053E4000514FE /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
+		BCB8AF3A269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				BC221734269955F8005E1658 /* Helpers */,
 				BCA1BA42269053E4000514FE /* CacheFeedUseCaseTests.swift */,
 				BC221732269953EA005E1658 /* LoadFeedFromCacheUseCaseTests.swift */,
+				BCB8AF3A269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */,
 				BC2896E62674CF5E0062D25F /* URLSessionHTTPClientTest.swift in Sources */,
 				BCA1BA43269053E4000514FE /* CacheFeedUseCaseTests.swift in Sources */,
+				BCB8AF3B269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				BC22173626995608005E1658 /* FeedStoreSpy.swift in Sources */,
 				BC221733269953EB005E1658 /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				BC960A9926803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */,
