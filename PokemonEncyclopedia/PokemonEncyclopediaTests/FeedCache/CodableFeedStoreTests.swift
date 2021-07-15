@@ -76,19 +76,8 @@ class CodableFeedStoreTests: XCTestCase {
 
 	func test_retrieve_deliversEmptyOnEmptyCache(){
 		let sut = makeSUT()
-		let exp = expectation(description: "Wait for completion")
 		
-		sut.retrieve{ result in
-			switch result {
-				case .empty:
-					break
-				default:
-					XCTFail("Expected empty result, got \(result) instead")
-			}
-			exp.fulfill()
-		}
-		
-		wait(for: [exp], timeout: 1.0)
+		expect(sut, toRetrieve: .empty)
 	}
 
 	func test_retrieve_hasNoSideEffectsOnEmptyCache(){
@@ -113,29 +102,17 @@ class CodableFeedStoreTests: XCTestCase {
 	
 	func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValue(){
 		let sut = makeSUT()
-		let exp = expectation(description: "Wait for completion")
 		let feed = uniqueImageFeed().local
 		let timestamp = Date.init()
 		
-		
+		let exp = expectation(description: "Wait for completion")
 		sut.insert(feed, timestamp: timestamp) { insertionError in
 			XCTAssertNil(insertionError, "Expected feed to be inserted Successfully")
-			
-			sut.retrieve { receivedResult in
-				switch receivedResult {
-					case let .found(feed: retrieveFeed, timestamp: retrieveTimestamp):
-						XCTAssertEqual(retrieveFeed, feed)
-						XCTAssertEqual(retrieveTimestamp, timestamp)
-						
-					default:
-						XCTFail("Expected found result with feed \(feed) & timestamp \(timestamp), got \(receivedResult) instead")
-				}
-				
-				exp.fulfill()
-			}
+			exp.fulfill()
 		}
-		
 		wait(for: [exp], timeout: 1.0)
+		
+		expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
 	}
 	
 	func test_retrieve_hasNoSideEffectsOnNonEmptyCache(){
@@ -183,6 +160,26 @@ class CodableFeedStoreTests: XCTestCase {
 
 	private func testSpecificStoreURL() -> URL {
 		return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
+	}
+	
+	private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file:StaticString = #file, line: UInt = #line) {
+		let exp = expectation(description: "Wait for completion")
+		
+		sut.retrieve { receivedResult in
+			switch (expectedResult, receivedResult) {
+				case (.empty, .empty):
+				break
+					
+				case let (.found(expectedFeed, expectedTimestamp), .found(receivedFeed, receivedTimestamp)):
+					XCTAssertEqual(expectedFeed, receivedFeed)
+					XCTAssertEqual(expectedTimestamp, receivedTimestamp)
+
+				default:
+					XCTFail("Expected to retrieve expected \(expectedResult) , got \(receivedResult) instead")
+			}
+			exp.fulfill()
+		}
+		wait(for: [exp], timeout: 1.0)
 	}
 	
 	
