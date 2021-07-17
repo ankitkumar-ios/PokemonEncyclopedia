@@ -30,6 +30,7 @@
 		BC788E922695560D003C59AB /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC788E912695560D003C59AB /* LocalFeedLoader.swift */; };
 		BC788E9426955681003C59AB /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC788E9326955681003C59AB /* FeedStore.swift */; };
 		BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */; };
+		BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91340426A327B40000CC29 /* CodableFeedStore.swift */; };
 		BC960A9626803289002BCAB9 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */; };
 		BC960A9926803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
 		BC960AAD26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960AAC26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift */; };
@@ -95,6 +96,7 @@
 		BC788E912695560D003C59AB /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		BC788E9326955681003C59AB /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaTests.swift; sourceTree = "<group>"; };
+		BC91340426A327B40000CC29 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase-MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		BC960AAA26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonEncyclopedia_APIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +248,7 @@
 				BC788E9326955681003C59AB /* FeedStore.swift */,
 				BC5BA76E2696A493009BDCC7 /* LocalFeedImage.swift */,
 				BC4B4289269BDDBF00B3FD91 /* FeedCachePolicy.swift */,
+				BC91340426A327B40000CC29 /* CodableFeedStore.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */,
 				BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */,
 				BC788E922695560D003C59AB /* LocalFeedLoader.swift in Sources */,
+				BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */,
 				BC30B8C02674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld in Sources */,
 				BC30B8EA2674B90800230F88 /* FeedImage.swift in Sources */,
 				BC30B8B82674A77500230F88 /* SceneDelegate.swift in Sources */,
