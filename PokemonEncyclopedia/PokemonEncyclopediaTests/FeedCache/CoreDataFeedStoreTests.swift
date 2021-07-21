@@ -6,12 +6,31 @@
 //
 
 import XCTest
+import PokemonEncyclopedia
 
 
-class CoreDataFeedStoreSpecs: FeedStoreSpecs {
+class CoreDataFeedStore: FeedStore {
+	func retrieve(completion: @escaping RetrievalCompletion) {
+		
+		completion(.empty)
+	}
+		
+	func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+		
+	}
+	
+	func deleteCachedFeed(completion: @escaping DeletionCompletion) {
+		
+	}
+}
+
+
+class CoreDataFeedStoreSpecs: XCTestCase, FeedStoreSpecs {
 	
 	func test_retrieve_deliversEmptyOnEmptyCache() {
+		let sut = makeSUT()
 		
+		assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
 	}
 	
 	func test_retrieve_hasNoSideEffectsOnEmptyCache() {
@@ -56,6 +75,14 @@ class CoreDataFeedStoreSpecs: FeedStoreSpecs {
 	
 	func test_storeSideEffects_runSerially() {
 		
+	}
+	
+	//MARK:- Helper
+	
+	private func makeSUT(file:StaticString = #file, line: UInt = #line) -> FeedStore{
+		let sut = CoreDataFeedStore()
+		trackForMemoryLeaks(sut)
+		return sut
 	}
 	
 }
