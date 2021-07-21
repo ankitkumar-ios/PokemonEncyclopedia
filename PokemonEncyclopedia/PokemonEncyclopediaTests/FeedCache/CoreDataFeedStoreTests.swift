@@ -9,22 +9,6 @@ import XCTest
 import PokemonEncyclopedia
 
 
-class CoreDataFeedStore: FeedStore {
-	func retrieve(completion: @escaping RetrievalCompletion) {
-		
-		completion(.empty)
-	}
-		
-	func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-		
-	}
-	
-	func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-		
-	}
-}
-
-
 class CoreDataFeedStoreSpecs: XCTestCase, FeedStoreSpecs {
 	
 	func test_retrieve_deliversEmptyOnEmptyCache() {
@@ -40,7 +24,9 @@ class CoreDataFeedStoreSpecs: XCTestCase, FeedStoreSpecs {
 	}
 	
 	func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
+		let sut = makeSUT()
 		
+		assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
 	}
 	
 	func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
