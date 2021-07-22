@@ -26,7 +26,7 @@ public class CoreDataFeedStore: FeedStore {
 				request.returnsObjectsAsFaults = false
 				
 				if let cache = try context.fetch(request).first {
-					completion(.found(feed: cache.feed.compactMap { $0 as? ManagedFeedImage }.map { LocalFeedImage(id: $0.id, name: $0.name, url: $0.url) }, timestamp: cache.timestamp))
+					completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
 				} else {
 					completion(.empty)
 				}
@@ -47,13 +47,7 @@ public class CoreDataFeedStore: FeedStore {
 			do {
 				let managedCache = ManagedCache(context: context)
 				managedCache.timestamp = timestamp
-				managedCache.feed = NSOrderedSet(array: feed.map { local in
-					let managed = ManagedFeedImage(context: context)
-					managed.id = local.id ?? UUID()
-					managed.name = local.name
-					managed.url = local.url
-					return managed
-				})
+				managedCache.feed = ManagedFeedImage.image(from: feed, in: context)
 				
 				try context.save()
 				completion(nil)
@@ -104,14 +98,34 @@ private extension NSManagedObjectModel {
 
 @objc(ManagedCache)
 private class ManagedCache: NSManagedObject {
- @NSManaged var timestamp: Date
- @NSManaged var feed: NSOrderedSet
+	@NSManaged var timestamp: Date
+	@NSManaged var feed: NSOrderedSet
+	
+	var localFeed:[LocalFeedImage] {
+		return feed.compactMap { ($0 as? ManagedFeedImage)?.local }
+	}
+	
 }
 
 @objc(ManagedFeedImage)
 private class ManagedFeedImage: NSManagedObject {
- @NSManaged var id: UUID
- @NSManaged var name: String?
- @NSManaged var url: URL
- @NSManaged var cache: ManagedCache
+	@NSManaged var id: UUID?
+	@NSManaged var name: String?
+	@NSManaged var url: URL
+	@NSManaged var cache: ManagedCache
+	
+	static func image(from localFeed: [LocalFeedImage], in context: NSManagedObjectContext) -> NSOrderedSet {
+		return NSOrderedSet(array: localFeed.map { local in
+			let managed = ManagedFeedImage(context: context)
+			managed.id = local.id
+			managed.name = local.name
+			managed.url = local.url
+			return managed
+		})
+	}
+	
+	var local: LocalFeedImage {
+		return LocalFeedImage(id: id, name: name, url: url)
+	}
+	
 }
