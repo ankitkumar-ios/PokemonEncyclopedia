@@ -96,6 +96,32 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		expect(sut, toRetrieve: .empty, file: file, line: line)
 	}
 
+	func assertThatSideEffectsRunSerially(on sut: FeedStore, file: StaticString = #file, line:UInt = #line){
+		var completedOperationInOrder = [XCTestExpectation]()
+		
+		let op1 = expectation(description: "Wait for Operation 1")
+		sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+			completedOperationInOrder.append(op1)
+			op1.fulfill()
+		}
+		
+		let op2 = expectation(description: "Wait for Operation 2")
+		sut.deleteCachedFeed { _ in
+			completedOperationInOrder.append(op2)
+			op2.fulfill()
+		}
+		
+		let op3 = expectation(description: "Wait for Operation 3")
+		sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+			completedOperationInOrder.append(op3)
+			op3.fulfill()
+		}
+		
+		waitForExpectations(timeout: 5.0, handler: nil)
+		
+		XCTAssertEqual(completedOperationInOrder, [op1, op2, op3], "Expected side-effect to run serially but operation finished in wrong order")
+		
+	}
 	
 	
 	@discardableResult
