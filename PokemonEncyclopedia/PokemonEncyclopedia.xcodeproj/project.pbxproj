@@ -213,6 +213,7 @@
 				BC30B8B52674A77500230F88 /* AppDelegate.swift */,
 				BC30B8B72674A77500230F88 /* SceneDelegate.swift */,
 				BC30B8B92674A77500230F88 /* ViewController.swift */,
+				BC8A0A4D26AD5B5600A450A2 /* Codable */,
 				BC8A0A4C26AD5AD800A450A2 /* CoreData */,
 				BC788E90269555F5003C59AB /* FeedCache */,
 				BC2896DC2674C5780062D25F /* FeedListAPI */,
@@ -262,7 +263,6 @@
 				BC788E9326955681003C59AB /* FeedStore.swift */,
 				BC5BA76E2696A493009BDCC7 /* LocalFeedImage.swift */,
 				BC4B4289269BDDBF00B3FD91 /* FeedCachePolicy.swift */,
-				BC91340426A327B40000CC29 /* CodableFeedStore.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -274,6 +274,14 @@
 				BC30B8BE2674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		BC8A0A4D26AD5B5600A450A2 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				BC91340426A327B40000CC29 /* CodableFeedStore.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		BC960A972680335C002BCAB9 /* Helper */ = {
