@@ -33,6 +33,8 @@
 		BC788E9426955681003C59AB /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC788E9326955681003C59AB /* FeedStore.swift */; };
 		BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */; };
 		BC8A0A5026AD5BC800A450A2 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */; };
+		BC8A0A5326AD5C4C00A450A2 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A5226AD5C4C00A450A2 /* ManagedCache.swift */; };
+		BC8A0A5526AD5C9C00A450A2 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A5426AD5C9C00A450A2 /* ManagedFeedImage.swift */; };
 		BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91340426A327B40000CC29 /* CodableFeedStore.swift */; };
 		BC960A9626803289002BCAB9 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */; };
 		BC960A9926803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
@@ -107,6 +109,8 @@
 		BC788E9326955681003C59AB /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaTests.swift; sourceTree = "<group>"; };
 		BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		BC8A0A5226AD5C4C00A450A2 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
+		BC8A0A5426AD5C9C00A450A2 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
 		BC91340426A327B40000CC29 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase-MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				BCCDCE2426A7C83C00B038B0 /* CoreDataFeedStore.swift */,
 				BC30B8BE2674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld */,
 				BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */,
+				BC8A0A5226AD5C4C00A450A2 /* ManagedCache.swift */,
+				BC8A0A5426AD5C9C00A450A2 /* ManagedFeedImage.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -496,12 +502,14 @@
 				BCCDCE2526A7C83C00B038B0 /* CoreDataFeedStore.swift in Sources */,
 				BC4B428A269BDDBF00B3FD91 /* FeedCachePolicy.swift in Sources */,
 				BC2896DE2674C5960062D25F /* RemoteFeedLoader.swift in Sources */,
+				BC8A0A5526AD5C9C00A450A2 /* ManagedFeedImage.swift in Sources */,
 				BC5BA76D2696A446009BDCC7 /* RemoteFeedItem.swift in Sources */,
 				BC8A0A5026AD5BC800A450A2 /* CoreDataHelpers.swift in Sources */,
 				BC5BA76F2696A493009BDCC7 /* LocalFeedImage.swift in Sources */,
 				BC788E9426955681003C59AB /* FeedStore.swift in Sources */,
 				BC2896E12674C88B0062D25F /* HTTPClient.swift in Sources */,
 				BC2896E32674C8A70062D25F /* FeedItemsMapper.swift in Sources */,
+				BC8A0A5326AD5C4C00A450A2 /* ManagedCache.swift in Sources */,
 				BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */,
 				BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */,
 				BC788E922695560D003C59AB /* LocalFeedLoader.swift in Sources */,
