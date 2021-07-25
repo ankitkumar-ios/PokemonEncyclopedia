@@ -32,6 +32,7 @@
 		BC788E922695560D003C59AB /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC788E912695560D003C59AB /* LocalFeedLoader.swift */; };
 		BC788E9426955681003C59AB /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC788E9326955681003C59AB /* FeedStore.swift */; };
 		BC7B07952674C04E00DFDE2B /* PokemonEncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */; };
+		BC8A0A5026AD5BC800A450A2 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */; };
 		BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91340426A327B40000CC29 /* CodableFeedStore.swift */; };
 		BC960A9626803289002BCAB9 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */; };
 		BC960A9926803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
@@ -105,6 +106,7 @@
 		BC788E912695560D003C59AB /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		BC788E9326955681003C59AB /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		BC7B07942674C04E00DFDE2B /* PokemonEncyclopediaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonEncyclopediaTests.swift; sourceTree = "<group>"; };
+		BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		BC91340426A327B40000CC29 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase-MemoryLeakTracking.swift"; sourceTree = "<group>"; };
@@ -213,8 +215,6 @@
 				BC30B8B52674A77500230F88 /* AppDelegate.swift */,
 				BC30B8B72674A77500230F88 /* SceneDelegate.swift */,
 				BC30B8B92674A77500230F88 /* ViewController.swift */,
-				BC8A0A4D26AD5B5600A450A2 /* Codable */,
-				BC8A0A4C26AD5AD800A450A2 /* CoreData */,
 				BC788E90269555F5003C59AB /* FeedCache */,
 				BC2896DC2674C5780062D25F /* FeedListAPI */,
 				BC30B8E82674B89000230F88 /* PokemonFeedFeature */,
@@ -259,6 +259,7 @@
 		BC788E90269555F5003C59AB /* FeedCache */ = {
 			isa = PBXGroup;
 			children = (
+				BC8A0A5126AD5BF600A450A2 /* Infrastructure */,
 				BC788E912695560D003C59AB /* LocalFeedLoader.swift */,
 				BC788E9326955681003C59AB /* FeedStore.swift */,
 				BC5BA76E2696A493009BDCC7 /* LocalFeedImage.swift */,
@@ -272,6 +273,7 @@
 			children = (
 				BCCDCE2426A7C83C00B038B0 /* CoreDataFeedStore.swift */,
 				BC30B8BE2674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld */,
+				BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -282,6 +284,15 @@
 				BC91340426A327B40000CC29 /* CodableFeedStore.swift */,
 			);
 			path = Codable;
+			sourceTree = "<group>";
+		};
+		BC8A0A5126AD5BF600A450A2 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				BC8A0A4D26AD5B5600A450A2 /* Codable */,
+				BC8A0A4C26AD5AD800A450A2 /* CoreData */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		BC960A972680335C002BCAB9 /* Helper */ = {
@@ -486,6 +497,7 @@
 				BC4B428A269BDDBF00B3FD91 /* FeedCachePolicy.swift in Sources */,
 				BC2896DE2674C5960062D25F /* RemoteFeedLoader.swift in Sources */,
 				BC5BA76D2696A446009BDCC7 /* RemoteFeedItem.swift in Sources */,
+				BC8A0A5026AD5BC800A450A2 /* CoreDataHelpers.swift in Sources */,
 				BC5BA76F2696A493009BDCC7 /* LocalFeedImage.swift in Sources */,
 				BC788E9426955681003C59AB /* FeedStore.swift in Sources */,
 				BC2896E12674C88B0062D25F /* HTTPClient.swift in Sources */,
