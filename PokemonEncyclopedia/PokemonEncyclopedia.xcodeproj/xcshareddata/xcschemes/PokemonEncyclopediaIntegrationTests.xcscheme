@@ -28,9 +28,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC8A0A5926ADD18200A450A2"
-               BuildableName = "PokemonEncyclopediaIntegrationTests.xctest"
-               BlueprintName = "PokemonEncyclopediaIntegrationTests"
+               BlueprintIdentifier = "BC023F4626AE4CA500963578"
+               BuildableName = "PokemonEncyclopediaCacheIntegrationTests.xctest"
+               BlueprintName = "PokemonEncyclopediaCacheIntegrationTests"
                ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
             </BuildableReference>
          </TestableReference>
