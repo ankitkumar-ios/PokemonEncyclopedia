@@ -10,6 +10,15 @@ import PokemonEncyclopedia
 
 class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 
+	override func setUp() {
+		setupEmptyStoreState()
+	}
+	
+	override func tearDown() {
+		undoStoreSideEffects()
+	}
+	
+	
 	func test_load_deliversNoItemsOnEmptyCache() {
 		let sut = makeSUT()
 		let exp = expectation(description: "Wait for completion")
@@ -40,7 +49,20 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		return sut
 	}
 
-	func testSpecificURL() -> URL {
+	private func setupEmptyStoreState() {
+		deleteStoreArtifacts()
+	}
+	
+	private func undoStoreSideEffects() {
+		deleteStoreArtifacts()
+	}
+	
+	private func deleteStoreArtifacts() {
+		try? FileManager.default.removeItem(at: testSpecificURL())
+	}
+	
+	
+	private func testSpecificURL() -> URL {
 		return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
 	}
 
