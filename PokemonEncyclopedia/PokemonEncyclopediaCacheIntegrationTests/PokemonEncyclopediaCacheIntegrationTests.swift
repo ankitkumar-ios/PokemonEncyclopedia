@@ -42,6 +42,31 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		expect(sutToPerformLoad, toLoad: feed)
 	}
 	
+	func test_save_overridesItemsSavedOnASeparateInstance() {
+		let sutToPerformFirstSave = makeSUT()
+		let sutToPerformLastSave = makeSUT()
+		let sutToPerformLoad = makeSUT()
+		let firstFeed = uniqueImageFeed().models
+		let lastFeed = uniqueImageFeed().models
+		
+		let saveExp1 = expectation(description: "Wait for saving cache")
+		sutToPerformFirstSave.save(firstFeed) { saveError in
+			XCTAssertNil(saveError,"Expected successful result")
+			saveExp1.fulfill()
+		}
+		wait(for: [saveExp1], timeout: 1.0)
+		
+		
+		let saveExp2 = expectation(description: "Wait for saving cache")
+		sutToPerformLastSave.save(lastFeed) { saveError in
+			XCTAssertNil(saveError,"Expected successful result")
+			saveExp2.fulfill()
+		}
+		wait(for: [saveExp2], timeout: 1.0)
+		
+		expect(sutToPerformLoad, toLoad: lastFeed)
+	}
+	
 	
 	
 	//MARK:- Helper
