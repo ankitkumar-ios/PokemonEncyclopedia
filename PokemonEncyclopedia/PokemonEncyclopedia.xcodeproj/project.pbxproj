@@ -39,7 +39,6 @@
 		BC8A0A5026AD5BC800A450A2 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */; };
 		BC8A0A5326AD5C4C00A450A2 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A5226AD5C4C00A450A2 /* ManagedCache.swift */; };
 		BC8A0A5526AD5C9C00A450A2 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A0A5426AD5C9C00A450A2 /* ManagedFeedImage.swift */; };
-		BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91340426A327B40000CC29 /* CodableFeedStore.swift */; };
 		BC960A9626803289002BCAB9 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */; };
 		BC960A9926803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
 		BC960AAD26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960AAC26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.swift */; };
@@ -53,7 +52,6 @@
 		BCB8AF3F269A9F2D001AEA75 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8AF3E269A9F2D001AEA75 /* SharedTestHelpers.swift */; };
 		BCCDCE2326A7BD0A00B038B0 /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDCE2226A7BD0A00B038B0 /* CoreDataFeedStoreTests.swift */; };
 		BCCDCE2526A7C83C00B038B0 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCDCE2426A7C83C00B038B0 /* CoreDataFeedStore.swift */; };
-		BCE7E58A269E887600CC1008 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7E589269E887600CC1008 /* CodableFeedStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +123,6 @@
 		BC8A0A4F26AD5BC800A450A2 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		BC8A0A5226AD5C4C00A450A2 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		BC8A0A5426AD5C9C00A450A2 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
-		BC91340426A327B40000CC29 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		BC960A9526803289002BCAB9 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase-MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		BC960AAA26803495002BCAB9 /* PokemonEncyclopedia_APIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonEncyclopedia_APIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +137,6 @@
 		BCB8AF3E269A9F2D001AEA75 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		BCCDCE2226A7BD0A00B038B0 /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		BCCDCE2426A7C83C00B038B0 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
-		BCE7E589269E887600CC1008 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,18 +312,9 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		BC8A0A4D26AD5B5600A450A2 /* Codable */ = {
-			isa = PBXGroup;
-			children = (
-				BC91340426A327B40000CC29 /* CodableFeedStore.swift */,
-			);
-			path = Codable;
-			sourceTree = "<group>";
-		};
 		BC8A0A5126AD5BF600A450A2 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				BC8A0A4D26AD5B5600A450A2 /* Codable */,
 				BC8A0A4C26AD5AD800A450A2 /* CoreData */,
 			);
 			path = Infrastructure;
@@ -358,7 +345,6 @@
 				BCA1BA42269053E4000514FE /* CacheFeedUseCaseTests.swift */,
 				BC221732269953EA005E1658 /* LoadFeedFromCacheUseCaseTests.swift */,
 				BCB8AF3A269A99B4001AEA75 /* ValidateFeedCacheUseCaseTests.swift */,
-				BCE7E589269E887600CC1008 /* CodableFeedStoreTests.swift */,
 				BC06000926A51E7B00FCCF4E /* FeedStoreSpecs.swift */,
 				BC06000B26A51EFA00FCCF4E /* XCTestCase+FeedStoreSpecs.swift */,
 				BCB57BA726A52F580096DBCE /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */,
@@ -586,7 +572,6 @@
 				BC30B8BA2674A77500230F88 /* ViewController.swift in Sources */,
 				BC30B8B62674A77500230F88 /* AppDelegate.swift in Sources */,
 				BC788E922695560D003C59AB /* LocalFeedLoader.swift in Sources */,
-				BC91340526A327B40000CC29 /* CodableFeedStore.swift in Sources */,
 				BC30B8C02674A77500230F88 /* PokemonEncyclopedia.xcdatamodeld in Sources */,
 				BC30B8EA2674B90800230F88 /* FeedImage.swift in Sources */,
 				BC30B8B82674A77500230F88 /* SceneDelegate.swift in Sources */,
@@ -598,7 +583,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC06000C26A51EFA00FCCF4E /* XCTestCase+FeedStoreSpecs.swift in Sources */,
-				BCE7E58A269E887600CC1008 /* CodableFeedStoreTests.swift in Sources */,
 				BC30B8F02674BB8C00230F88 /* RemoteFeedLoader.swift in Sources */,
 				BCCDCE2326A7BD0A00B038B0 /* CoreDataFeedStoreTests.swift in Sources */,
 				BCB57BA426A52F400096DBCE /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
