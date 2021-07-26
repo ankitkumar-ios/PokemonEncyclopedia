@@ -21,18 +21,8 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 	
 	func test_load_deliversNoItemsOnEmptyCache() {
 		let sut = makeSUT()
-		let exp = expectation(description: "Wait for completion")
 		
-		sut.load { result in
-			switch result {
-				case let .success(imageFeed):
-					XCTAssertEqual(imageFeed, [], "Expected empty feed")
-				case let .failure(error):
-					XCTFail("Expected successful feed, got \(error) instead")
-			}
-			exp.fulfill()
-		}
-		wait(for: [exp], timeout: 1.0)
+		expect(sut, toLoad:[])
 	}
 	
 	
@@ -49,34 +39,37 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		}
 		wait(for: [exp], timeout: 1.0)
 		
-		let loadExp = expectation(description: "Wait for load completion")
-		sutToPerformLoad.load { result in
-			switch result {
-				case let .success(imageFeed):
-					XCTAssertEqual(imageFeed, feed)
-				case let .failure(error):
-					XCTFail("Expected successful result, got \(error) instead")
-			}
-			loadExp.fulfill()
-		}
-		
-		wait(for: [loadExp], timeout: 1.0)
-		
+		expect(sutToPerformLoad, toLoad: feed)
 	}
 	
 	
 	
 	//MARK:- Helper
-	private func makeSUT() -> LocalFeedLoader {
+	private func makeSUT(file:StaticString = #file, line:UInt = #line) -> LocalFeedLoader {
 		let storeBundle = Bundle(for: CoreDataFeedStore.self)
 		let storeURL = testSpecificURL()
 		let store = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
 		
 		let sut = LocalFeedLoader(store: store, currentDate: Date.init)
-		trackForMemoryLeaks(store)
-		trackForMemoryLeaks(sut)
+		trackForMemoryLeaks(store, file: file, line: line)
+		trackForMemoryLeaks(sut, file: file, line: line)
 		
 		return sut
+	}
+	
+	private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
+		let exp = expectation(description: "Wait for completion")
+		
+		sut.load { result in
+			switch result {
+				case let .success(loadedFeed):
+					XCTAssertEqual(loadedFeed, expectedFeed, file: file, line: line)
+				case let .failure(error):
+					XCTFail("Expected successful feed, got \(error) instead", file: file, line: line)
+			}
+			exp.fulfill()
+		}
+		wait(for: [exp], timeout: 1.0)
 	}
 
 	private func setupEmptyStoreState() {
