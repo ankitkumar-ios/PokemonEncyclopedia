@@ -75,6 +75,16 @@
                ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BC023F4626AE4CA500963578"
+               BuildableName = "PokemonEncyclopediaCacheIntegrationTests.xctest"
+               BlueprintName = "PokemonEncyclopediaCacheIntegrationTests"
+               ReferencedContainer = "container:PokemonEncyclopedia.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
