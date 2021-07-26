@@ -31,13 +31,7 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		let sutToPerformLoad = makeSUT()
 		let feed = uniqueImageFeed().models
 		
-		let exp = expectation(description: "Wait for saving cache")
-		
-		sutToPerformSave.save(feed) { saveError in
-			XCTAssertNil(saveError,"Expected successful result")
-			exp.fulfill()
-		}
-		wait(for: [exp], timeout: 1.0)
+		save(feed, with: sutToPerformSave)
 		
 		expect(sutToPerformLoad, toLoad: feed)
 	}
@@ -49,20 +43,8 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		let firstFeed = uniqueImageFeed().models
 		let lastFeed = uniqueImageFeed().models
 		
-		let saveExp1 = expectation(description: "Wait for saving cache")
-		sutToPerformFirstSave.save(firstFeed) { saveError in
-			XCTAssertNil(saveError,"Expected successful result")
-			saveExp1.fulfill()
-		}
-		wait(for: [saveExp1], timeout: 1.0)
-		
-		
-		let saveExp2 = expectation(description: "Wait for saving cache")
-		sutToPerformLastSave.save(lastFeed) { saveError in
-			XCTAssertNil(saveError,"Expected successful result")
-			saveExp2.fulfill()
-		}
-		wait(for: [saveExp2], timeout: 1.0)
+		save(firstFeed, with: sutToPerformFirstSave)
+		save(lastFeed, with: sutToPerformLastSave)
 		
 		expect(sutToPerformLoad, toLoad: lastFeed)
 	}
@@ -80,6 +62,16 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 		trackForMemoryLeaks(sut, file: file, line: line)
 		
 		return sut
+	}
+	
+	private func save(_ feed: [FeedImage], with sut: LocalFeedLoader, file: StaticString = #file, line:UInt = #line) {
+		
+		let exp = expectation(description: "Wait for saving cache")
+		sut.save(feed) { saveError in
+			XCTAssertNil(saveError,"Expected successful result")
+			exp.fulfill()
+		}
+		wait(for: [exp], timeout: 1.0)
 	}
 	
 	private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
