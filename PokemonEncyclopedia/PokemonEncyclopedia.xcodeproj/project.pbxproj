@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC023F4A26AE4CA500963578 /* PokemonEncyclopediaCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC023F4926AE4CA500963578 /* PokemonEncyclopediaCacheIntegrationTests.swift */; };
+		BC023F5126AE4E3500963578 /* XCTestCase-MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC960A9826803367002BCAB9 /* XCTestCase-MemoryLeakTracking.swift */; };
 		BC06000A26A51E7B00FCCF4E /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06000926A51E7B00FCCF4E /* FeedStoreSpecs.swift */; };
 		BC06000C26A51EFA00FCCF4E /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC06000B26A51EFA00FCCF4E /* XCTestCase+FeedStoreSpecs.swift */; };
 		BC221733269953EB005E1658 /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC221732269953EA005E1658 /* LoadFeedFromCacheUseCaseTests.swift */; };
@@ -557,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC023F4A26AE4CA500963578 /* PokemonEncyclopediaCacheIntegrationTests.swift in Sources */,
+				BC023F5126AE4E3500963578 /* XCTestCase-MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
