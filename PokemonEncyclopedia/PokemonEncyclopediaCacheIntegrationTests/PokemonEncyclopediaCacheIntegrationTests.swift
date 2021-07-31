@@ -67,8 +67,14 @@ class PokemonEncyclopediaCacheIntegrationTests: XCTestCase {
 	private func save(_ feed: [FeedImage], with sut: LocalFeedLoader, file: StaticString = #file, line:UInt = #line) {
 		
 		let exp = expectation(description: "Wait for saving cache")
-		sut.save(feed) { saveError in
-			XCTAssertNil(saveError,"Expected successful result")
+		sut.save(feed) { saveResult in
+			switch saveResult {
+				case let .failure(error):
+					XCTAssertNil("Expected successful result but got \(error)")
+				case .success:
+					break
+			}
+			
 			exp.fulfill()
 		}
 		wait(for: [exp], timeout: 1.0)
