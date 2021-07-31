@@ -28,7 +28,7 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 	
 	
 	//MARK: Helper
-	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
+	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
 		
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
 		let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
@@ -37,7 +37,7 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		trackForMemoryLeaks(loader, file: file, line: line)
 		let ext = expectation(description: "Wait for Completion")
 		
-		var receivedResult:LoadFeedResult?
+		var receivedResult:FeedLoader.Result?
 		
 		loader.load { result in
 			receivedResult = result
