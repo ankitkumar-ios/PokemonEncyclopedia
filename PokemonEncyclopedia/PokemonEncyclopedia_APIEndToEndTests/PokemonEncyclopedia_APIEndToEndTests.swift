@@ -44,7 +44,7 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 			ext.fulfill()
 		}
 		
-		wait(for: [ext], timeout: 5.0)
+		wait(for: [ext], timeout: 7.0)
 		
 		return receivedResult
 		
