@@ -12,10 +12,10 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 
 	func test_endToEndTestServerGETFeedResult_matchFixedTestAccountData() {
 		switch getFeedResult() {
-			case let .success(items):
-				XCTAssertEqual(items.count, 20, "Expeceted 8 items")
+			case let .success(imageFeed):
+				XCTAssertEqual(imageFeed.count, 20, "Expeceted 20 image in test")
 				
-				items.enumerated().forEach { (index, item) in
+				imageFeed.enumerated().forEach { (index, item) in
 					XCTAssertEqual(item, expectedItem(at: index), "Unexpected Value at index \(index)")
 				}
 				
@@ -28,7 +28,7 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 	
 	
 	//MARK: Helper
-	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
+	private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
 		
 		let url = URL.init(string: "https://pokeapi.co/api/v2/pokemon/")!
 		let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
@@ -37,21 +37,21 @@ class PokemonEncyclopedia_APIEndToEndTests: XCTestCase {
 		trackForMemoryLeaks(loader, file: file, line: line)
 		let ext = expectation(description: "Wait for Completion")
 		
-		var receivedResult:LoadFeedResult?
+		var receivedResult:FeedLoader.Result?
 		
 		loader.load { result in
 			receivedResult = result
 			ext.fulfill()
 		}
 		
-		wait(for: [ext], timeout: 5.0)
+		wait(for: [ext], timeout: 7.0)
 		
 		return receivedResult
 		
 	}
 	
-	private func expectedItem(at index: Int) -> FeedItem {
-		return FeedItem.init(name: name(at: index), imageURL: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
+	private func expectedItem(at index: Int) -> FeedImage {
+		return FeedImage.init(name: name(at: index), url: imageURL(at: index))//URL(string:"https://pokeapi.co/api/v2/pokemon/1/")!
 	}
 	
 	private func name(at index: Int)-> String {

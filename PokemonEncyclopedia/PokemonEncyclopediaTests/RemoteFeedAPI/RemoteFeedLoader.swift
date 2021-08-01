@@ -79,8 +79,8 @@ class RemoteFeedLoaderTest: XCTestCase {
 	func test_load_deliveryItemsOn200HTTPResponseWithJSONItem(){
 		let (sut, client) = makeSUT()
 		
-		let item1 = makeItem(name: "another name", imageURL: URL.init(string: "https://a-url.com")!)
-		let item2 = makeItem(name: "a name", imageURL: URL.init(string: "https://another-url.com")!)
+		let item1 = makeItem(id: UUID(), name: "another name", imageURL: URL.init(string: "https://a-url.com")!)
+		let item2 = makeItem(id: UUID(), name: "a name", imageURL: URL.init(string: "https://another-url.com")!)
 		
 		
 		
@@ -119,16 +119,13 @@ class RemoteFeedLoaderTest: XCTestCase {
 	}
 	
 	
-	private func makeItem(name: String?,imageURL: URL) -> (model: FeedItem, json:[String: Any]){
-		let item = FeedItem(name: name, imageURL: imageURL)
+	private func makeItem(id: UUID, name: String?,imageURL: URL) -> (model: FeedImage, json:[String: Any]){
+		let item = FeedImage(id: id, name: name, url: imageURL)
 		let json = [
+			"id": item.id?.uuidString,
 			"name": item.name,
-			"url": item.imageURL.absoluteString,
-		].reduce(into: [String: Any]()) {(acc, e) in
-			if let val = e.value {
-				acc[e.key] = val
-			}
-		}
+			"url": item.url.absoluteString,
+		].compactMapValues { $0 }
 		
 		return (item, json)
 	}
@@ -165,13 +162,13 @@ class RemoteFeedLoaderTest: XCTestCase {
 	}
 	
 	private class HTTPClientSpy: HTTPClient {
-		var messages = [(url: URL, completion:(HTTPClientResult)->Void)]()
+		var messages = [(url: URL, completion:(HTTPClient.Result)->Void)]()
 		
 		var requestedURLs: [URL] {
 			return messages.map {$0.url}
 		}
 		
-		func get(from url: URL, completion: @escaping (HTTPClientResult)-> Void){
+		func get(from url: URL, completion: @escaping (HTTPClient.Result)-> Void){
 			messages.append((url, completion ))
 		}
 		
@@ -181,7 +178,7 @@ class RemoteFeedLoaderTest: XCTestCase {
 		
 		func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
 			let response = HTTPURLResponse(url: requestedURLs[index], statusCode: code, httpVersion: nil, headerFields: nil)!
-			messages[index].completion(.success(data, response))
+			messages[index].completion(.success((data, response)))
 		}
 
 	}
